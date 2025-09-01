@@ -97,7 +97,7 @@ scoree.innerHTML = `Score : ${++score}`;
     });
 
 });
-
+//
 
 
 

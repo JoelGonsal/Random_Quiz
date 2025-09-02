@@ -58,6 +58,7 @@ console.log(q.correct_answer);
 btn.addEventListener("click", () => {
   count = (count + 1) % questions.length; 
    q = questions[count];
+    box.style.borderColor="";
   showQuestion();
 
 

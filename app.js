@@ -1,4 +1,4 @@
-const API_KEY = "O23UpjCGAsxBN9KiK03lBhj5THbUSPZGPw1ILAo9";
+
 let count = 0;
 let score = 0;
 
@@ -10,7 +10,9 @@ let scoree = document.querySelector("#scoree");
 
 let h2 = document.querySelector("#result");
 function decodeHTML(html) {
-  return html.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
 
 async function getQuestions() {
@@ -36,7 +38,7 @@ h2.innerText="";
   }
   
   let options = [...q.incorrect_answers, q.correct_answer];
-
+console.log(q.correct_answer);
   options.sort(() => Math.random() - 0.5);
 
 
@@ -89,6 +91,13 @@ scoree.innerHTML = `Score : ${++score}`;
       }
     });
     }
+
+setTimeout(() => {
+  count = (count + 1) % questions.length;
+  q = questions[count];
+  showQuestion();
+}, 3000);
+  
 
       
 
